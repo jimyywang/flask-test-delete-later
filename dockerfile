@@ -1,12 +1,19 @@
-FROM python:3.10-alpine
+FROM jenkins/jenkins:latest
 
-WORKDIR /app
+USER root
 
-COPY . .
+RUN curl -sSL https://get.docker.com/ | sh
 
-RUN pip install -r requirement.txt
+USER jenkins
 
-EXPOSE 5000
+# FROM python:3.10-alpine
 
-CMD ["python", "-m", "flash", "run", "--host=0.0.0.0"]
+# WORKDIR /app
 
+# COPY . .
+
+# RUN pip install -r requirement.txt
+
+# EXPOSE 5000
+
+# CMD ["python", "-m", "flash", "run", "--host=0.0.0.0"]
