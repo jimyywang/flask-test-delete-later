@@ -1,10 +1,15 @@
 pipeline {
     agent any
 
+    
     stages {
-        stage('Build') {
+        stage('Login and Push'){
             steps {
-                sh 'docker build -t jimyywang/flask-app .'
+                script{
+                    withDockerRegistry(credentialsId: 'Docker') {
+                        docker.build('jimyywang/flask-app').push('latest')
+                    }
+                }
             }
         }
     }
