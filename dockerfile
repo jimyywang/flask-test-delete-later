@@ -8,4 +8,4 @@ RUN pip install -r requirement.txt
 
 EXPOSE 5000
 
-CMD ["python", "-m", "flash", "run", "--host=0.0.0.0"]
+CMD ["python", "-m", "flask", "run", "--host=0.0.0.0"]
