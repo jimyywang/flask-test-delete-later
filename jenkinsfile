@@ -34,7 +34,7 @@ pipeline {
                     withAWS(credentials: 'AWS_Credentials', region: 'us-east-1') {
                         try {
                             sh 'kubectl apply -f manifest.yaml'
-                            sh 'kubectl rollout restart deployment flask-deployment'
+                            sh 'kubectl rollout restart deployment flask-deployment -n jimyywang-namespace'
                         } catch (Exception e) {
                             echo 'Exception occured: ' + e.toString()
                             echo 'Handle the Exception!'
